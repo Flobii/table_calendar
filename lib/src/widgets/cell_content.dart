@@ -78,13 +78,16 @@ class CellContent extends StatelessWidget {
           );
     } else if (isSelected) {
       cell = calendarBuilders.selectedBuilder?.call(context, day, focusedDay) ??
-          AnimatedContainer(
-            duration: duration,
-            margin: margin,
-            padding: padding,
-            decoration: calendarStyle.selectedDecoration,
-            alignment: alignment,
-            child: Text(text, style: calendarStyle.selectedTextStyle),
+          Hero(
+            tag: "calendarDayIsSelected",
+            child: AnimatedContainer(
+              duration: duration,
+              margin: margin,
+              padding: padding,
+              decoration: calendarStyle.selectedDecoration,
+              alignment: alignment,
+              child: Text(text, style: calendarStyle.selectedTextStyle),
+            ),
           );
     } else if (isRangeStart) {
       cell =
