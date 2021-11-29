@@ -86,7 +86,11 @@ class CellContent extends StatelessWidget {
               padding: padding,
               decoration: calendarStyle.selectedDecoration,
               alignment: alignment,
-              child: Text(text, style: calendarStyle.selectedTextStyle),
+              child: Hero(
+                tag: "calendarDayIsSelectedText",
+                child: Text(text,
+                style: calendarStyle.selectedTextStyle),
+              ),
             ),
           );
     } else if (isRangeStart) {
